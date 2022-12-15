@@ -1,8 +1,8 @@
 const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('tbody')
 const sNome = document.querySelector('#m-nome')
-const sFuncao = document.querySelector('#m-funcao')
-const sSalario = document.querySelector('#m-salario')
+const sParcela = document.querySelector('#m-parcela')
+const sValor = document.querySelector('#m-valor')
 const btnSalvar = document.querySelector('#btnSalvar')
 
 let itens
@@ -19,13 +19,13 @@ function openModal(edit = false, index = 0) {
 
   if (edit) {
     sNome.value = itens[index].nome
-    sFuncao.value = itens[index].funcao
-    sSalario.value = itens[index].salario
+    sParcela.value = itens[index].parcela
+    sValor.value = itens[index].valor
     id = index
   } else {
     sNome.value = ''
-    sFuncao.value = ''
-    sSalario.value = ''
+    sParcela.value = ''
+    sValor.value = ''
   }
   
 }
@@ -46,8 +46,8 @@ function insertItem(item, index) {
 
   tr.innerHTML = `
     <td>${item.nome}</td>
-    <td>${item.funcao}</td>
-    <td>R$ ${item.salario}</td>
+    <td>${item.parcela}</td>
+    <td>R$ ${item.valor}</td>
     <td class="acao">
       <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
     </td>
@@ -60,7 +60,7 @@ function insertItem(item, index) {
 
 btnSalvar.onclick = e => {
   
-  if (sNome.value == '' || sFuncao.value == '' || sSalario.value == '') {
+  if (sNome.value == '' || sParcela.value == '' || sValor.value == '') {
     return
   }
 
@@ -68,10 +68,10 @@ btnSalvar.onclick = e => {
 
   if (id !== undefined) {
     itens[id].nome = sNome.value
-    itens[id].funcao = sFuncao.value
-    itens[id].salario = sSalario.value
+    itens[id].parcela= sParcela.value
+    itens[id].valor = sValor.value
   } else {
-    itens.push({'nome': sNome.value, 'funcao': sFuncao.value, 'salario': sSalario.value})
+    itens.push({'nome': sNome.value, 'parcela': sParcela.value, 'valor': sValor.value})
   }
 
   setItensBD()
@@ -85,7 +85,7 @@ function loadItens() {
   itens = getItensBD()
   tbody.innerHTML = ''
   itens.forEach((item, index) => {
-    insertItem(item, index)
+    insertItem(item, index)W
   })
 
 }
