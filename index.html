@@ -13,7 +13,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <span>Cadastro de Contas Pessoal </span>
+      <span>Cadastro de Contas</span>
       <button onclick="openModal()" id="new">Incluir</i></button>
     </div>
 
@@ -22,8 +22,8 @@
         <thead>
           <tr>
             <th>Nome</th>
-            <th>Função</th>
-            <th>Salário</th>
+            <th>Parcela</th>
+            <th>Valor</th>
             <th class="acao">Editar</th>
             <th class="acao">Excluir</th>
           </tr>
@@ -39,11 +39,11 @@
           <label for="m-nome">Nome</label>
           <input id="m-nome" type="text" required />
   
-          <label for="m-funcao">Função</label>
-          <input id="m-funcao" type="text" required />
+          <label for="m-parcela">Parcela</label>
+          <input id="m-parcela" type="text" required />
   
-          <label for="m-salario">Salário</label>
-          <input id="m-salario" type="number" required />
+          <label for="m-valor">Valor</label>
+          <input id="m-valor" type="number" required />
           <button id="btnSalvar">Salvar</button>
         </form>
       </div>
